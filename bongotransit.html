@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dar es Salaam Daladala Routes</title>
+    <link rel="stylesheet" href="bt.css">
+</head>
+<body>
+    <header>
+        <h1>Dar es Salaam Daladala Routes</h1>
+        <form id="route-search">
+            <input type="text" id="route-input" placeholder="Enter destination...">
+            <button type="submit">Search</button>
+        </form>
+    </header>
+    <main>
+        <div id="map"></div>
+        <div id="route-details"></div>
+    </main>
+    <script src="scripts/bt.js" defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+
+</body>
+</html>
