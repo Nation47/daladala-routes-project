@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function displayRouteOnMap(stops) {
         const map = new google.maps.Map(document.getElementById('map'), {
             zoom: 12,
-            center: { lat: -6.7924, lng: 39.2083 } // Centered on Dar es Salaam
+            center: { lat: -6.7924, lng: 39.2083 } 
         });
         const geocoder = new google.maps.Geocoder();
         const bounds = new google.maps.LatLngBounds();
