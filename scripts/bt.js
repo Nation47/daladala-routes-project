@@ -35,17 +35,17 @@ document.addEventListener('DOMContentLoaded', () => {
     function displayRouteDetails(route) {
         routeDetails.innerHTML = `
             <h2>${route.route}</h2>
-            <p>Fare: ${route.fare}</p>
-            <h3>Stops:</h3>
+            <p>Nauli: ${route.fare}</p>
+            <h3>Vituo:</h3>
             <ul>
                 ${route.stops.map(stop => `<li>${stop}</li>`).join('')}
             </ul>
-            <h3>Traffic Congestion:</h3>
+            <h3>Msongamano wa Magari:</h3>
             <ul>
-                <li>Morning: ${route.traffic.morning}</li>
-                <li>Afternoon: ${route.traffic.afternoon}</li>
-                <li>Evening: ${route.traffic.evening}</li>
-                <li>Night: ${route.traffic.night}</li>
+                <li>Asubuhi: ${route.traffic.morning}</li>
+                <li>Mchana: ${route.traffic.afternoon}</li>
+                <li>Jioni: ${route.traffic.evening}</li>
+                <li>Usiku: ${route.traffic.night}</li>
             </ul>
         `;
     }
@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
     historyButton.addEventListener('click', () => {
         historyList.style.display = historyList.style.display === 'none' ? 'block' : 'none';
     });
-    
+
 
     function displayRouteHistory() {
         historyList.innerHTML = routeHistory.map(item => `<li>${item.route} - ${item.timestamp}</li>`).join('');
