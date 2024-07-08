@@ -7,6 +7,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const analysisResults = document.getElementById('analysis-results');
     const alertsButton = document.getElementById('alerts-button');
     const alertsCount = document.getElementById('alerts-count');
+    const historyButton = document.getElementById('history-button');
+    const analysisButton = document.getElementById('analysis-button');
+
+
+
     
     routeSearch.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -83,12 +88,9 @@ document.addEventListener('DOMContentLoaded', () => {
     function displayEmergencyAlerts(alerts) {
         alertsList.innerHTML = alerts.map(alert => `<li>${alert.description} - ${new Date(alert.timestamp).toLocaleString()}</li>`).join('');
         alertsCount.textContent = alerts.length;
+        //hidden contents
         alertsButton.addEventListener('click', () => {
-            if (alertsList.style.display === 'none') {
-                alertsList.style.display = 'block';
-            } else {
-                alertsList.style.display = 'none';
-            }
+            alertsList.style.display = alertsList.style.display === 'none' ? 'block' : 'none';
         });
     }
 
@@ -105,20 +107,28 @@ document.addEventListener('DOMContentLoaded', () => {
         let routeHistory = [];
 
         function addToRouteHistory(route) {
-            const existingRouteIndex = routeHistory.findIndex(item => item.route === route.route);
-            if (existingRouteIndex !== -1) {
-                routeHistory[existingRouteIndex].timestamp = new Date().toLocaleString();
-            } else {
-                routeHistory.push({
-                    route: route.route,
-                    timestamp: new Date().toLocaleString()
-                });
-            }
-            displayRouteHistory();
+        const existingRouteIndex = routeHistory.findIndex(item => item.route === route.route);
+        if (existingRouteIndex !== -1) {
+            routeHistory[existingRouteIndex].timestamp = new Date().toLocaleString();
+        } else {
+            routeHistory.push({
+                route: route.route,
+                timestamp: new Date().toLocaleString()
+            });
         }
+        
+        displayRouteHistory();
+    }
+
+    // hidden
+    historyButton.addEventListener('click', () => {
+        historyList.style.display = historyList.style.display === 'none' ? 'block' : 'none';
+    });
+    
 
     function displayRouteHistory() {
         historyList.innerHTML = routeHistory.map(item => `<li>${item.route} - ${item.timestamp}</li>`).join('');
+        
     }
 
     function analyzeRoutes(history) {
@@ -131,8 +141,20 @@ document.addEventListener('DOMContentLoaded', () => {
             return `<p>Route ${route} has been searched ${count} times.</p>`;
         }).join('');
 
+        analysisButton.addEventListener('click', () => {
+            analysisResults.style.display = analysisResults.style.display === 'none' ? 'block' : 'none';
+        });
+
         analysisResults.innerHTML = analysis;
     }
+
+    
+
+    // Toggle route history
+   
+
+    // Toggle route analysis
+   
 
     // Fetch emergency alerts when the page loads
     fetchEmergencyAlerts();
