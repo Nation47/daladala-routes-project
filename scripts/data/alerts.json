@@ -1,0 +1,22 @@
+[
+    {
+        "type": "Ajali",
+        "description": "Ajali imeripotiwa karibu na kituo cha mabasi cha Mwenge. Tegemea foleni.",
+        "timestamp": "2024-07-07T08:30:00Z"
+    },
+    {
+        "type": "Barabara imefungwa",
+        "description": "Barabara imefungwa kuna matengenezo karibu na eneo la Kariakoo. Tumia njia mbadala.",
+        "timestamp": "2024-07-07T10:00:00Z"
+    },
+    {
+        "type": "Mafuriko",
+        "description": "Mafuriko maeneo ya jangwani. Usumbufu katika njia zote ukanda huo.",
+        "timestamp": "2024-07-07T14:00:00Z"
+    },
+    {
+        "type": "Maandamano",
+        "description": "Maandamano maeneo ya Posta yamesababisha traffic jam. Epuka eneo hilo haraka iwezekanavyo.",
+        "timestamp": "2024-07-07T16:30:00Z"
+    }
+]

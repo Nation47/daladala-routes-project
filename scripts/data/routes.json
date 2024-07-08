@@ -20,6 +20,17 @@
             "evening": "High",
             "night": "Low"
         }
+    },
+    {
+        "route": "Makumbusho - Mbezi",
+        "fare": "800 TZS",
+        "stops": ["Makumbusho", "Mwenge", "Mlimani", "Ubungo", "Kibo", "Bucha", "Kimara", "Mbezi"],
+        "traffic": {
+            "morning": "Medium",
+            "afternoon": "Low",
+            "evening": "High",
+            "night": "Low"
+        }
     }
 ]
 

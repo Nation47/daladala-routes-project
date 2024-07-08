@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const routeInput = document.getElementById('route-input');
     const routeSearch = document.getElementById('route-search');
     const routeDetails = document.getElementById('route-details');
+    const alertsList = document.getElementById('alerts-list'); 
 
     routeSearch.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -57,4 +58,25 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    function fetchEmergencyAlerts() {
+        fetch('scripts/data/alerts.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(alerts => {
+                displayEmergencyAlerts(alerts);
+            })
+            .catch(error => console.error('There was a problem with the fetch operation:', error));
+    }
+
+    function displayEmergencyAlerts(alerts) {
+        alertsList.innerHTML = alerts.map(alert => `<li>${alert.description} - ${new Date(alert.timestamp).toLocaleString()}</li>`).join('');
+    }
+
+    // Fetch emergency alerts when the page loads
+    fetchEmergencyAlerts();
 });
