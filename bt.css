@@ -61,3 +61,25 @@ main {
     border: 1px solid #ccc;
     margin-left: 1rem;
 }
+
+#alerts-button {
+    background-color: #f44336; /* Red */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+#alerts-button span {
+    margin-right: 10px;
+}
+
+#alerts-list {
+    list-style-type: none;
+    padding: 0;
+}
+

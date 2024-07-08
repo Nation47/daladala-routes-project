@@ -3,6 +3,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const routeSearch = document.getElementById('route-search');
     const routeDetails = document.getElementById('route-details');
     const alertsList = document.getElementById('alerts-list'); 
+    const historyList = document.getElementById('history-list');
+    const analysisDetails = document.getElementById('analysis-details');
+    const alertsButton = document.getElementById('alerts-button');
+    const alertsCount = document.getElementById('alerts-count');
 
     routeSearch.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -75,6 +79,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function displayEmergencyAlerts(alerts) {
         alertsList.innerHTML = alerts.map(alert => `<li>${alert.description} - ${new Date(alert.timestamp).toLocaleString()}</li>`).join('');
+        alertsCount.textContent = alerts.length;
+        alertsButton.addEventListener('click', () => {
+            if (alertsList.style.display === 'none') {
+                alertsList.style.display = 'block';
+            } else {
+                alertsList.style.display = 'none';
+            }
+        });
     }
 
     // Fetch emergency alerts when the page loads
