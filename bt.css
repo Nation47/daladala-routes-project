@@ -48,11 +48,11 @@ main {
     max-width: 1200px;
 }
 
-#map {
+/* #map {
     width: 70%;
     height: 500px;
     border: 1px solid #ccc;
-}
+} */
 
 #route-details {
     width: 30%;
@@ -63,7 +63,7 @@ main {
 }
 
 #alerts-button {
-    background-color: #f44336; /* Red */
+    background-color: #f44336; 
     color: white;
     padding: 10px 20px;
     border: none;
@@ -72,6 +72,7 @@ main {
     align-items: center;
     font-size: 16px;
     margin-bottom: 10px;
+    border-radius: 10px;
 }
 
 #alerts-button span {
@@ -79,7 +80,27 @@ main {
 }
 
 #alerts-list {
+    /* list-style-type: none; */
+    padding: 2px;
+}
+
+#route-search-section, #emergency-alerts, #route-history, #route-analysis {
+    margin: 20px 0;
+}
+
+#map {
+    width: 100%;
+    height: 400px;
+    margin-top: 20px;
+}
+
+#history-list, #alerts-list {
     list-style-type: none;
     padding: 0;
 }
+
+#alerts-button span {
+    margin-right: 10px;
+}
+
 

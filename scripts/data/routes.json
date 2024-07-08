@@ -31,6 +31,17 @@
             "evening": "High",
             "night": "Low"
         }
+    },
+    {
+        "route": "Mbagala/Rangi 3 - Mbezi",
+        "fare": "1200 TZS",
+        "stops": ["Mbagala", "Tabata", "Riverside", "Ubungo", "Kibo", "Bucha", "Kimara", "Mbezi"],
+        "traffic": {
+            "morning": "Medium",
+            "afternoon": "Low",
+            "evening": "High",
+            "night": "Low"
+        }
     }
 ]
 

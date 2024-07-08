@@ -4,10 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const routeDetails = document.getElementById('route-details');
     const alertsList = document.getElementById('alerts-list'); 
     const historyList = document.getElementById('history-list');
-    const analysisDetails = document.getElementById('analysis-details');
+    const analysisResults = document.getElementById('analysis-results');
     const alertsButton = document.getElementById('alerts-button');
     const alertsCount = document.getElementById('alerts-count');
-
+    
     routeSearch.addEventListener('submit', (e) => {
         e.preventDefault();
         const query = routeInput.value.toLowerCase();
@@ -18,10 +18,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (route) {
                     displayRouteDetails(route);
                     displayRouteOnMap(route.stops);
+                    addToRouteHistory(route.route);
+                    analyzeRoutes(routeHistory);
                 } else {
                     routeDetails.innerHTML = `<p>No routes found for "${query}".</p>`;
                 }
-            });
+            })
+            .catch(error => console.error('Error fetching routes:', error));
     });
 
     function displayRouteDetails(route) {
@@ -89,6 +92,49 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // route history 
+
+    fetch('scripts/data/routes.json')
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(route => addToRouteHistory(route));
+            analyzeRoutes(routeHistory);
+        })
+        .catch(error => console.error('Error fetching routes:', error));
+
+        let routeHistory = [];
+
+        function addToRouteHistory(route) {
+            const existingRouteIndex = routeHistory.findIndex(item => item.route === route.route);
+            if (existingRouteIndex !== -1) {
+                routeHistory[existingRouteIndex].timestamp = new Date().toLocaleString();
+            } else {
+                routeHistory.push({
+                    route: route.route,
+                    timestamp: new Date().toLocaleString()
+                });
+            }
+            displayRouteHistory();
+        }
+
+    function displayRouteHistory() {
+        historyList.innerHTML = routeHistory.map(item => `<li>${item.route} - ${item.timestamp}</li>`).join('');
+    }
+
+    function analyzeRoutes(history) {
+        const routeCount = history.reduce((acc, item) => {
+            acc[item.route] = (acc[item.route] || 0) + 1;
+            return acc;
+        }, {});
+
+        const analysis = Object.entries(routeCount).map(([route, count]) => {
+            return `<p>Route ${route} has been searched ${count} times.</p>`;
+        }).join('');
+
+        analysisResults.innerHTML = analysis;
+    }
+
     // Fetch emergency alerts when the page loads
     fetchEmergencyAlerts();
+
 });
