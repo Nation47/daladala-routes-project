@@ -1,25 +1,25 @@
 [
     {
         "route": "Mwenge - Posta",
-        "fare": "800 TZS",
-        "stops": [
-            "Mwenge",
-            "Ubungo",
-            "Magomeni",
-            "Kariakoo",
-            "Posta"
-        ]
+        "fare": "900 TZS",
+        "stops": ["Mwenge", "Ubungo", "Magomeni", "Kariakoo", "Posta"],
+        "traffic": {
+            "morning": "High",
+            "afternoon": "Medium",
+            "evening": "High",
+            "night": "Low"
+        }
     },
     {
         "route": "Tegeta - Kariakoo",
-        "fare": "700 TZS",
-        "stops": [
-            "Tegeta",
-            "Wazo Hill",
-            "Kawe",
-            "Mbezi Beach",
-            "Mikocheni",
-            "Kariakoo"
-        ]
+        "fare": "800 TZS",
+        "stops": ["Tegeta", "Wazo Hill", "Kawe", "Mbezi Beach", "Mikocheni", "Kariakoo"],
+        "traffic": {
+            "morning": "Medium",
+            "afternoon": "Low",
+            "evening": "High",
+            "night": "Low"
+        }
     }
 ]
+

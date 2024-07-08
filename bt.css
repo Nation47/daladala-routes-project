@@ -32,6 +32,7 @@ form button {
     color: #007bff;
     border: none;
     cursor: pointer;
+    border-radius: 4px;
 }
 
 form button:hover {

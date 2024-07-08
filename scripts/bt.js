@@ -27,6 +27,13 @@ document.addEventListener('DOMContentLoaded', () => {
             <ul>
                 ${route.stops.map(stop => `<li>${stop}</li>`).join('')}
             </ul>
+            <h3>Traffic Congestion:</h3>
+            <ul>
+                <li>Morning: ${route.traffic.morning}</li>
+                <li>Afternoon: ${route.traffic.afternoon}</li>
+                <li>Evening: ${route.traffic.evening}</li>
+                <li>Night: ${route.traffic.night}</li>
+            </ul>
         `;
     }
 
